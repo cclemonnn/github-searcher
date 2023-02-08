@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
+.navbar {
+  font-family: "Itim", cursive;
+  background-color: #00cccc;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100vw;
+  padding: 5px 10px;
+  border-bottom: 1px inset;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.githubIcon {
+  font-size: 1.5rem;
+}
+
+.searcher {
+  text-decoration: none;
+  color: #4b0082;
+  text-shadow: 1px 1px rgba(186, 85, 211, 0.3);
+}
+
+.searcher:hover {
+  color: #9932cc;
+}
+
+.searcher:active {
+  transform: scale(0.98);
+}
+
+.btnContainer {
+  display: flex;
+  gap: 1rem;
+  margin-right: 50px;
+}
+
+.btn {
+  color: #4b0082;
+  font-size: small;
+  text-decoration: none;
+  background-color: #00ffff;
+  border-radius: 10%;
+  padding: 2px 5px;
+  border: 1px solid #009999;
+}
+
+.btn:hover {
+  color: #009999;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}

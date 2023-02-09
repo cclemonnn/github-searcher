@@ -1,6 +1,6 @@
 import m from "./Main.module.css";
 
-function Main() {
-  return <main className={m.main}>Main</main>;
+function Main({ children }) {
+  return <main className={m.main}>{children}</main>;
 }
 export default Main;

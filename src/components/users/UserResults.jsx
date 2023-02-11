@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import u from "./UserResults.module.css";
 
 function UserResults() {
   const [users, setUsers] = useState([]);
@@ -27,7 +28,7 @@ function UserResults() {
   return (
     <>
       {users.map((user) => (
-        <div>{user.login}</div>
+        <div className={u.card}>{user.login}</div>
       ))}
     </>
   );

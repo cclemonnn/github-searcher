@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaSpinner } from "react-icons/fa";
 import u from "./UserResults.module.css";
 
 function UserResults() {
@@ -25,12 +26,20 @@ function UserResults() {
     setLoading(false);
   };
 
-  return (
-    <>
-      {users.map((user) => (
-        <div className={u.card}>{user.login}</div>
-      ))}
-    </>
-  );
+  if (!loading) {
+    return (
+      <div className={u.container}>
+        {users.map((user) => (
+          <div className={u.card}>{user.login}</div>
+        ))}
+      </div>
+    );
+  } else {
+    return (
+      <div className={u.spinnerContainer}>
+        <FaSpinner className={u.spinner} />
+      </div>
+    );
+  }
 }
 export default UserResults;

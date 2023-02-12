@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
+import UserItem from "./UserItem";
 import u from "./UserResults.module.css";
 
 function UserResults() {
@@ -30,7 +31,9 @@ function UserResults() {
     return (
       <div className={u.container}>
         {users.map((user) => (
-          <div className={u.card}>{user.login}</div>
+          <>
+            <UserItem key={user.id} user={user} />
+          </>
         ))}
       </div>
     );

@@ -7,11 +7,6 @@
   justify-content: center;
 }
 
-.card {
-  background-color: green;
-  border: 1px solid black;
-}
-
 .spinnerContainer {
   display: flex;
   justify-content: center;

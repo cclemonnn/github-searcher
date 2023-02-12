@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 5px;
 }
 
 .userInfo {
@@ -37,10 +38,12 @@
 .link {
   text-decoration: none;
   color: #a52a2a;
+  opacity: 0.5;
   font-size: x-small;
 }
 
 .link:hover {
+  opacity: 1;
   color: #ffd700;
 }
 

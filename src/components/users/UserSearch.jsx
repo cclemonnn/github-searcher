@@ -6,7 +6,7 @@ import u from "./UserSearch.module.css";
 
 function UserSearch() {
   const [text, setText] = useState("");
-  const { users } = useContext(GithubContext);
+  const { users, searchUsers } = useContext(GithubContext);
 
   //   Set text when input change
   const handleTextChange = (e) => setText(e.target.value);
@@ -16,6 +16,7 @@ function UserSearch() {
     e.preventDefault();
 
     if (text !== "") {
+      searchUsers(text);
     }
     setText("");
   };
@@ -36,7 +37,7 @@ function UserSearch() {
       </form>
 
       {/* Show clear btn only if search result is not empty */}
-      {users.lenth > 0 ? (
+      {users.length > 0 ? (
         <div className={u.clear}>
           <div className={u.clearContainer}>
             <VscClearAll className={u.clearBtn} />

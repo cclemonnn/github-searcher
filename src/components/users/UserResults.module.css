@@ -15,7 +15,7 @@
 .spinner {
   color: #00ffff;
   font-size: 10rem;
-  animation: spin infinite 3s linear;
+  animation: spin infinite 5s linear;
 }
 
 @keyframes spin {

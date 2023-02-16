@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+.container {
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.searchBox {
+  font-family: inherit;
+  color: #004c99;
+  letter-spacing: 1px;
+  width: 200px;
+  background-color: transparent;
+  padding: 10px 15px;
+  border-radius: 50px;
+  margin-right: 5px;
+  border: 3px solid white;
+}
+
+.searchBox::placeholder {
+  color: #00cccc;
+  font-weight: 100;
+  letter-spacing: 0;
+}
+
+.searchBox:focus {
+  outline: none;
+  border-color: #e5ffcc;
+  background-color: #00cccc;
+}
+
+.searchBtn {
+  font-family: inherit;
+  background-color: #00cccc;
+  border: 2px solid white;
+  color: #0000cc;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.searchBtn:hover {
+  cursor: pointer;
+  color: #ffff33;
+}
+
+.searchBtn:active {
+  transform: scale(0.95);
+  border-color: lightcyan;
+}
+
+.clear {
+  position: absolute;
+  right: 25%;
+  bottom: -50%;
+}
+
+.clearContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.clearBtn {
+  font-size: 15px;
+  background-color: #00cccc;
+  color: red;
+  border-radius: 10%;
+}
+
+.clearBtn:hover {
+  cursor: pointer;
+  background-color: #ffcc99;
+}
+
+.clearBtn:active {
+  transform: scale(0.9);
+}
+
+.clearText {
+  font-size: 10px;
+  color: #ff9999;
+}

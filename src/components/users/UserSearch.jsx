@@ -6,7 +6,7 @@ import u from "./UserSearch.module.css";
 
 function UserSearch() {
   const [text, setText] = useState("");
-  const { users, searchUsers } = useContext(GithubContext);
+  const { users, searchUsers, clearUsers } = useContext(GithubContext);
 
   //   Set text when input change
   const handleTextChange = (e) => setText(e.target.value);
@@ -40,7 +40,7 @@ function UserSearch() {
       {users.length > 0 ? (
         <div className={u.clear}>
           <div className={u.clearContainer}>
-            <VscClearAll className={u.clearBtn} />
+            <VscClearAll className={u.clearBtn} onClick={clearUsers} />
             <div className={u.clearText}>Clear</div>
           </div>
         </div>

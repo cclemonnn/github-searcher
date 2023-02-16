@@ -34,12 +34,20 @@ export const GithubProvider = ({ children }) => {
     });
   };
 
+  // Clear users
+  const clearUsers = () => {
+    dispatch({
+      type: ACTIONS.CLEAR_USERS,
+    });
+  };
+
   return (
     <GithubContext.Provider
       value={{
         users: state.users,
         loading: state.loading,
         searchUsers,
+        clearUsers,
       }}
     >
       {children}

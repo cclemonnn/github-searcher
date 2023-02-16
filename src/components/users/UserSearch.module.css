@@ -55,8 +55,8 @@
 
 .clear {
   position: absolute;
-  right: 25%;
-  bottom: -50%;
+  right: 50%;
+  top: 55%;
 }
 
 .clearContainer {
@@ -84,6 +84,7 @@
 .clearText {
   font-size: 10px;
   color: #ff9999;
+  opacity: 0.9;
 }
 
 .spinnerContainer {

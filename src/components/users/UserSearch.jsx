@@ -1,4 +1,5 @@
 import { VscClearAll } from "react-icons/vsc";
+import { FaSpinner } from "react-icons/fa";
 import { useState, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
 import u from "./UserSearch.module.css";
@@ -35,11 +36,18 @@ function UserSearch() {
       </form>
 
       {/* Show clear btn only if search result is not empty */}
-      {users.lenth > 0 && (
+      {users.lenth > 0 ? (
         <div className={u.clear}>
           <div className={u.clearContainer}>
             <VscClearAll className={u.clearBtn} />
             <div className={u.clearText}>Clear</div>
+          </div>
+        </div>
+      ) : (
+        <div className={u.spinnerContainer}>
+          <FaSpinner className={u.spinner} />
+          <div className={u.promptText}>
+            enter a <b>github username</b> and click <b>search</b>
           </div>
         </div>
       )}

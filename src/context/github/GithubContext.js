@@ -15,11 +15,12 @@ export const GithubProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
-  const fetchUsers = async () => {
+  // Search user results
+  const searchUsers = async (username) => {
     // Set Loading to true at start
     dispatch({ type: ACTIONS.SET_LOADING });
 
-    const response = await fetch(`${GITHUB_URL}/users`, {
+    const response = await fetch(`${GITHUB_URL}/search/users?q=${username}`, {
       headers: {
         Authorization: `token ${GITHUB_TOKEN}`,
       },
@@ -29,7 +30,7 @@ export const GithubProvider = ({ children }) => {
     // Get Users
     dispatch({
       type: ACTIONS.GET_USERS,
-      payload: data,
+      payload: data.items,
     });
   };
 
@@ -38,7 +39,7 @@ export const GithubProvider = ({ children }) => {
       value={{
         users: state.users,
         loading: state.loading,
-        fetchUsers,
+        searchUsers,
       }}
     >
       {children}
@@ -47,3 +48,22 @@ export const GithubProvider = ({ children }) => {
 };
 
 export default GithubContext;
+
+// // get random users for test purpose
+// const fetchUsers = async () => {
+//   // Set Loading to true at start
+//   dispatch({ type: ACTIONS.SET_LOADING });
+
+//   const response = await fetch(`${GITHUB_URL}/users`, {
+//     headers: {
+//       Authorization: `token ${GITHUB_TOKEN}`,
+//     },
+//   });
+//   const data = await response.json();
+
+//   // Get Users
+//   dispatch({
+//     type: ACTIONS.GET_USERS,
+//     payload: data,
+//   });
+// };

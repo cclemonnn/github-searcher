@@ -17,16 +17,23 @@ export const AlertProvider = ({ children }) => {
       payload: { msg, type },
     });
 
-    const removeAlert = dispatch({
-      type: ACTIONS.REMOVE_ALERT,
-    });
+    const removeAlert = () => {
+      dispatch({
+        type: ACTIONS.REMOVE_ALERT,
+      });
+    };
 
-    // remove alert after 3s
-    setTimeout(removeAlert, 3000);
+    // remove alert after 2s
+    setTimeout(removeAlert, 2000);
   };
 
   return (
-    <AlertContext.Provider value={{ alert: state, setAlert }}>
+    <AlertContext.Provider
+      value={{
+        alert: state,
+        setAlert,
+      }}
+    >
       {children}
     </AlertContext.Provider>
   );

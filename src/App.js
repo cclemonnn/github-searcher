@@ -6,6 +6,7 @@ import Main from "./components/layout/Main";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Alert from "./components/layout/Alert";
 import { GithubProvider } from "./context/github/GithubContext";
 import { AlertProvider } from "./context/alert/AlertContext";
 
@@ -16,6 +17,7 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Main>
+            <Alert />
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/about" element={<About />}></Route>

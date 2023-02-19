@@ -2,11 +2,18 @@ import { VscClearAll } from "react-icons/vsc";
 import { FaSpinner } from "react-icons/fa";
 import { useState, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
+import AlertContext from "../../context/alert/AlertContext";
 import u from "./UserSearch.module.css";
 
 function UserSearch() {
+  // text input in search box
   const [text, setText] = useState("");
+
+  // user data, get users, clear users
   const { users, searchUsers, clearUsers } = useContext(GithubContext);
+
+  // set alert
+  const { setAlert } = useContext(AlertContext);
 
   //   Set text when input change
   const handleTextChange = (e) => setText(e.target.value);
@@ -15,8 +22,11 @@ function UserSearch() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // if search box is not empty
     if (text !== "") {
       searchUsers(text);
+    } else {
+      setAlert("Please enter an username", "error");
     }
     setText("");
   };

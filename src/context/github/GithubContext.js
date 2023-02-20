@@ -9,7 +9,8 @@ const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 export const GithubProvider = ({ children }) => {
   const initialState = {
-    users: [],
+    users: [], //all user data from search results
+    user: {}, //single user data from view profile
     loading: false,
   };
 
@@ -41,12 +42,39 @@ export const GithubProvider = ({ children }) => {
     });
   };
 
+  // Get user data through view profile
+  const getUserData = async (login) => {
+    // Set Loading to true at start
+    dispatch({ type: ACTIONS.SET_LOADING });
+
+    const response = await fetch(`${GITHUB_URL}/users/${login}`, {
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+      },
+    });
+
+    // If 404 redirect
+    if (response.status === 404) {
+      window.location = "/notfound";
+    } else {
+      const data = await response.json();
+
+      // Get single user data
+      dispatch({
+        type: ACTIONS.GET_USER_DATA,
+        payload: data,
+      });
+    }
+  };
+
   return (
     <GithubContext.Provider
       value={{
         users: state.users,
+        user: state.user,
         loading: state.loading,
         searchUsers,
+        getUserData,
         clearUsers,
       }}
     >

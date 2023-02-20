@@ -9,7 +9,7 @@ function UserItem({ user }) {
       </div>
       <div className={u.userInfoContainer}>
         <div className={u.userInfo}>{user.login}</div>
-        <Link className={u.link} to={`/users/${user.login}`}>
+        <Link className={u.link} to={`/user/${user.login}`}>
           Visit Profile
         </Link>
       </div>

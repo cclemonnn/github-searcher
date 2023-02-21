@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  color: #00ffff;
+  font-size: 10rem;
+  animation: spin infinite 5s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.profileContainer {
+  display: flex;
+  word-break: break-all;
+  background-color: antiquewhite;
+}
+
+.avatar img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameContainer {
+  margin-bottom: 5px;
+}
+
+.name {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+.login {
+  font-family: "Roboto Slab", serif;
+  font-size: 12px;
+}
+
+.emailContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.emailIcon {
+  margin-right: 3px;
+}
+
+.emailAddress {
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.noEmail {
+  font-size: 12px;
+}
+
+.aboutMe {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.bio {
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  word-break: break-word;
+  padding: 0 10px;
+}
+
+.noBio {
+  font-size: 12px;
+  padding: 0 10px;
+}

@@ -77,7 +77,7 @@ function User() {
       <div className={u.profileInfo}>
         {/* Name */}
         <div className={u.nameContainer}>
-          {name !== null && <span className={u.name}>{name}&nbsp;</span>}
+          {name !== null && <span className={u.name}>{name}</span>}
           <span className={u.login}>
             (<i>{login}</i>)
           </span>

@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Roboto+Slab&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 
+/* Loading Spinner */
 .spinnerContainer {
   display: flex;
   justify-content: center;
@@ -22,10 +23,16 @@
   }
 }
 
+/* Profile Container */
 .profileContainer {
   display: flex;
+  gap: 15px;
   word-break: break-all;
   background-color: antiquewhite;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #00cccc;
+  box-shadow: 2px 2px 10px rgba(139, 0, 139, 0.3);
 }
 
 /* Avatar */
@@ -43,11 +50,12 @@
   object-fit: contain;
   border-radius: 50%;
   border: 3px solid black;
+  box-shadow: 1px 1px 10px rgba(135, 206, 250, 0.8);
   transition: filter 0.3s ease-out;
 }
 
 .avatar:hover {
-  filter: grayscale(50%) blur(2px);
+  filter: grayscale(50%) blur(1px);
 }
 
 figcaption {
@@ -63,13 +71,20 @@ figcaption {
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: orange;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background-color: rgba(255, 165, 0, 0.9);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease-out;
 }
 
 .avatarContainer img:hover ~ .overlayContainer,
+.overlayContainer:hover {
+  pointer-events: auto;
+  opacity: 1;
+}
+
 .overlayContainer:hover {
   pointer-events: auto;
   opacity: 1;
@@ -86,8 +101,17 @@ figcaption {
   color: inherit;
 }
 
+.twitterContainer a:hover {
+  color: #0000cd;
+}
+
+.twitterContainer a:active {
+  transform: scale(0.95);
+}
+
 .twitterIcon {
   margin-right: 3px;
+  color: rgb(29, 161, 242);
 }
 
 .twitter,
@@ -107,6 +131,7 @@ figcaption {
 
 .blogIcon {
   margin-right: 3px;
+  color: #000080;
 }
 
 /* Profile Info */
@@ -117,18 +142,25 @@ figcaption {
 
 /* Name */
 .nameContainer {
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 .name {
   font-family: "Roboto", sans-serif;
+  color: #d2691e;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
   font-size: 20px;
+  border-radius: 3px;
+  padding: 2px 7px;
+  box-shadow: 0 1px 6px rgba(210, 105, 30, 0.3);
+  margin-right: 5px;
 }
 
 .login {
   font-family: "Roboto Slab", serif;
   font-size: 12px;
+  color: #f4a460;
 }
 
 /* Email */
@@ -140,6 +172,7 @@ figcaption {
 
 .emailIcon {
   margin-right: 3px;
+  color: #6495ed;
 }
 
 .emailAddress {
@@ -163,10 +196,16 @@ figcaption {
 }
 
 .gitContainer a:hover {
+  color: #cd853f;
+}
+
+.gitContainer a:active {
+  transform: scale(0.95);
 }
 
 .gitIcon {
   margin-right: 3px;
+  color: #404040;
 }
 
 .gitText {

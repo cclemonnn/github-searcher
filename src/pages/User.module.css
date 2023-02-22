@@ -28,19 +28,94 @@
   background-color: antiquewhite;
 }
 
-.avatar img {
+/* Avatar */
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+.avatar {
   width: 200px;
   height: 200px;
   object-fit: contain;
   border-radius: 50%;
   border: 3px solid black;
+  transition: filter 0.3s ease-out;
 }
 
+.avatar:hover {
+  filter: grayscale(50%) blur(2px);
+}
+
+figcaption {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #888;
+}
+
+.overlayContainer {
+  position: absolute;
+  width: 80%;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: orange;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-out;
+}
+
+.avatarContainer img:hover ~ .overlayContainer,
+.overlayContainer:hover {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.twitterContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.twitterContainer a {
+  color: inherit;
+}
+
+.twitterIcon {
+  margin-right: 3px;
+}
+
+.twitter,
+.blog {
+  font-size: 12px;
+}
+
+.noTwitter,
+.noBlog {
+  font-size: 12px;
+}
+
+.blogContainer {
+  display: flex;
+  align-items: center;
+}
+
+.blogIcon {
+  margin-right: 3px;
+}
+
+/* Profile Info */
 .profileInfo {
   display: flex;
   flex-direction: column;
 }
 
+/* Name */
 .nameContainer {
   margin-bottom: 5px;
 }
@@ -56,10 +131,11 @@
   font-size: 12px;
 }
 
+/* Email */
 .emailContainer {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .emailIcon {
@@ -67,7 +143,6 @@
 }
 
 .emailAddress {
-  text-decoration: underline;
   font-size: 12px;
 }
 
@@ -75,6 +150,30 @@
   font-size: 12px;
 }
 
+/* Github Link */
+.gitContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.gitContainer a {
+  color: inherit;
+}
+
+.gitContainer a:hover {
+}
+
+.gitIcon {
+  margin-right: 3px;
+}
+
+.gitText {
+  font-size: 12px;
+}
+
+/* About Me */
 .aboutMe {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 12px;
@@ -83,7 +182,7 @@
 
 .bio {
   font-family: "Playfair Display", serif;
-  font-size: 15px;
+  font-size: 14px;
   word-break: break-word;
   padding: 0 10px;
 }

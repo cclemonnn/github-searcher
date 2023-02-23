@@ -9,6 +9,12 @@
   position: relative;
 }
 
+form {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
 .searchBox {
   font-family: inherit;
   color: #004c99;
@@ -18,7 +24,7 @@
   padding: 10px 15px;
   border-radius: 50px;
   margin-right: 5px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   border: 3px solid white;
 }
 
@@ -41,6 +47,7 @@
   color: #0000cc;
   padding: 5px;
   border-radius: 10px;
+  height: 80%;
 }
 
 .searchBtn:hover {
@@ -56,7 +63,7 @@
 .clear {
   position: absolute;
   right: 50%;
-  top: 55%;
+  bottom: -40%;
 }
 
 .clearContainer {
@@ -91,7 +98,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 30px;
+  margin-top: 50px;
 }
 
 .spinner {
@@ -111,6 +120,7 @@
 
 .promptText {
   text-decoration: underline;
+  text-align: center;
   font-size: 15px;
   color: #4b0082;
 }

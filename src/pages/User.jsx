@@ -38,81 +38,83 @@ function User() {
   }
 
   return (
-    <div className={u.profileContainer}>
-      {/* Avatar */}
-      <figure className={u.avatarContainer}>
-        <img src={avatar_url} alt="user avatar" className={u.avatar} />
-        <figcaption>hover for more information</figcaption>
-        <div className={u.overlayContainer}>
-          <div className={u.twitterContainer}>
-            <FaTwitter className={u.twitterIcon} />
-            {twitter_username !== null ? (
-              <a
-                href={`https://twitter.com/${twitter_username}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className={u.twitter}>{twitter_username}</div>
-              </a>
-            ) : (
-              <div className={u.noTwitter}>
-                (<i>Twitter not provided</i>)
-              </div>
-            )}
-          </div>
-          <div className={u.blogContainer}>
-            <CgWebsite className={u.blogIcon} />
-            {blog !== "" ? (
-              <div className={u.blog}>{blog}</div>
-            ) : (
-              <div className={u.noBlog}>
-                (<i>Blog not provided</i>)
-              </div>
-            )}
-          </div>
-        </div>
-      </figure>
-
-      {/* Profile Info */}
-      <div className={u.profileInfo}>
-        {/* Name */}
-        <div className={u.nameContainer}>
-          {name !== null && <span className={u.name}>{name}</span>}
-          <span className={u.login}>
-            (<i>{login}</i>)
-          </span>
-        </div>
-
-        {/* Email */}
-        <div className={u.emailContainer}>
-          <MdEmail className={u.emailIcon} />
-          {email !== null ? (
-            <span className={u.emailAddress}>{email}</span>
-          ) : (
-            <span className={u.noEmail}>
-              (<i>Email not provided</i>)
-            </span>
-          )}
-        </div>
-
-        {/* Github link */}
-        <div className={u.gitContainer}>
-          <FaGithub className={u.gitIcon} />
-          <a href={html_url} target="_blank" rel="noreferrer">
-            <div className={u.gitText}>Visit Github Page</div>
-          </a>
-        </div>
-
-        {/* User bio */}
-        <div className={u.bioContainer}>
-          <div className={u.aboutMe}>About Me:</div>
-          {bio !== null ? (
-            <div className={u.bio}>{bio}</div>
-          ) : (
-            <div className={u.noBio}>
-              (<i>Bio not provided</i>)
+    <div className={u.container}>
+      <div className={u.profileContainer}>
+        {/* Avatar */}
+        <figure className={u.avatarContainer}>
+          <img src={avatar_url} alt="user avatar" className={u.avatar} />
+          <figcaption>hover for more information</figcaption>
+          <div className={u.overlayContainer}>
+            <div className={u.twitterContainer}>
+              <FaTwitter className={u.twitterIcon} />
+              {twitter_username !== null ? (
+                <a
+                  href={`https://twitter.com/${twitter_username}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className={u.twitter}>{twitter_username}</div>
+                </a>
+              ) : (
+                <div className={u.noTwitter}>
+                  (<i>Twitter not provided</i>)
+                </div>
+              )}
             </div>
-          )}
+            <div className={u.blogContainer}>
+              <CgWebsite className={u.blogIcon} />
+              {blog !== "" ? (
+                <div className={u.blog}>{blog}</div>
+              ) : (
+                <div className={u.noBlog}>
+                  (<i>Blog not provided</i>)
+                </div>
+              )}
+            </div>
+          </div>
+        </figure>
+
+        {/* Profile Info */}
+        <div className={u.profileInfo}>
+          {/* Name */}
+          <div className={u.nameContainer}>
+            {name !== null && <span className={u.name}>{name}</span>}
+            <span className={u.login}>
+              (<i>{login}</i>)
+            </span>
+          </div>
+
+          {/* Email */}
+          <div className={u.emailContainer}>
+            <MdEmail className={u.emailIcon} />
+            {email !== null ? (
+              <span className={u.emailAddress}>{email}</span>
+            ) : (
+              <span className={u.noEmail}>
+                (<i>Email not provided</i>)
+              </span>
+            )}
+          </div>
+
+          {/* Github link */}
+          <div className={u.gitContainer}>
+            <FaGithub className={u.gitIcon} />
+            <a href={html_url} target="_blank" rel="noreferrer">
+              <div className={u.gitText}>Visit Github Page</div>
+            </a>
+          </div>
+
+          {/* User bio */}
+          <div className={u.bioContainer}>
+            <div className={u.aboutMe}>About Me:</div>
+            {bio !== null ? (
+              <div className={u.bio}>{bio}</div>
+            ) : (
+              <div className={u.noBio}>
+                (<i>Bio not provided</i>)
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

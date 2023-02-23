@@ -1,5 +1,6 @@
 import { useEffect, useContext } from "react";
 import GithubContext from "../context/github/GithubContext";
+import RepoList from "../components/repos/RepoList";
 import { useParams } from "react-router-dom";
 import {
   FaSpinner,
@@ -14,7 +15,8 @@ import { VscRepo, VscGist } from "react-icons/vsc";
 import u from "./User.module.css";
 
 function User() {
-  const { user, getUserData, loading } = useContext(GithubContext);
+  const { user, getUserData, loading, getUserRepos, repos } =
+    useContext(GithubContext);
 
   // Get login param
   const params = useParams();
@@ -35,9 +37,10 @@ function User() {
     following,
   } = user;
 
-  // Get user data once
+  // Get user data and repos once
   useEffect(() => {
     getUserData(params.login);
+    getUserRepos(params.login);
   }, []);
 
   if (loading) {
@@ -160,6 +163,9 @@ function User() {
           {public_gists}
         </div>
       </div>
+
+      {/* Repo List */}
+      <RepoList repos={repos} />
     </div>
   );
 }

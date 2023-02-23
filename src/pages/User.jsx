@@ -1,9 +1,16 @@
 import { useEffect, useContext } from "react";
 import GithubContext from "../context/github/GithubContext";
 import { useParams } from "react-router-dom";
-import { FaSpinner, FaGithub, FaTwitter } from "react-icons/fa";
+import {
+  FaSpinner,
+  FaGithub,
+  FaTwitter,
+  FaUsers,
+  FaUserFriends,
+} from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 import { MdEmail } from "react-icons/md";
+import { VscRepo, VscGist } from "react-icons/vsc";
 import u from "./User.module.css";
 
 function User() {
@@ -22,6 +29,10 @@ function User() {
     html_url,
     twitter_username,
     blog,
+    public_repos,
+    public_gists,
+    followers,
+    following,
   } = user;
 
   // Get user data once
@@ -115,6 +126,38 @@ function User() {
               </div>
             )}
           </div>
+        </div>
+      </div>
+
+      {/* Extra Info */}
+      <div className={u.extraInfoContainer}>
+        <div className={u.outerContainer}>
+          <div className={u.innerContainer}>
+            <FaUsers className={u.infoIcons} />
+            <div className={u.innerText}>Followers</div>
+          </div>
+          {followers}
+        </div>
+        <div className={u.outerContainer}>
+          <div className={u.innerContainer}>
+            <FaUserFriends className={u.infoIcons} />
+            <div className={u.innerText}>Following</div>
+          </div>
+          {following}
+        </div>
+        <div className={u.outerContainer}>
+          <div className={u.innerContainer}>
+            <VscRepo className={u.infoIcons} />
+            <div className={u.innerText}>Public Repos</div>
+          </div>
+          {public_repos}
+        </div>
+        <div className={u.outerContainer}>
+          <div className={u.innerContainer}>
+            <VscGist className={u.infoIcons} />
+            <div className={u.innerText}>Public Gists</div>
+          </div>
+          {public_gists}
         </div>
       </div>
     </div>

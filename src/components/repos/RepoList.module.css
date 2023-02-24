@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+
+.repoContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffe4c4;
+  border-radius: 10px;
+  border: 2px solid #00cccc;
+  box-shadow: 2px 2px 10px rgba(139, 0, 139, 0.3);
+  margin-top: 20px;
+  color: #483d8b;
+}
+
+.repoContainer a {
+  color: inherit;
+  border-radius: 10px;
+}
+
+.repoContainer a:hover {
+  background-color: #f4a460;
+  text-decoration-color: #ffdab9;
+}
+
+.repoContainer a:hover .repoName {
+  color: #fffafa;
+}
+
+.repoContainer a:hover .linkIcon {
+  color: #483d8b;
+}
+
+.innerContaienr {
+  display: flex;
+  align-items: center;
+  padding: 5px 3px;
+}
+
+.linkIcon {
+  margin-right: 5px;
+  color: #ff8c00;
+}
+
+.repoName {
+  font-size: 13px;
+}
+
+.repoTitle {
+  font-family: "Tilt Neon", cursive;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-bottom: 2px solid #f4a460;
+}

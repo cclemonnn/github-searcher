@@ -3,30 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap");
 
-/* Loading Spinner */
-.spinnerContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.spinner {
-  color: #00ffff;
-  font-size: 10rem;
-  animation: spin infinite 5s linear;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Contaienr */
 .container {
   font-family: "Roboto Slab", serif;
+  min-width: 220px;
 }
 
 /* Profile Container */
@@ -148,7 +128,11 @@ figcaption {
 
 /* Name */
 .nameContainer {
-  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
 }
 
 .name {
@@ -274,4 +258,31 @@ figcaption {
   font-family: "Shantell Sans", cursive;
   font-weight: bold;
   color: #483d8b;
+}
+
+/* Loading Spinner */
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  color: #00ffff;
+  font-size: 10rem;
+  animation: spin infinite 5s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (width < 500px) {
+  .profileContainer {
+    flex-direction: column;
+  }
 }

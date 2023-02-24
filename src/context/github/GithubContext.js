@@ -73,11 +73,15 @@ export const GithubProvider = ({ children }) => {
     // Set Loading to true at start
     dispatch({ type: ACTIONS.SET_LOADING });
 
-    const response = await fetch(`${GITHUB_URL}/users/${login}/repos`, {
-      headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
-      },
-    });
+    const response = await fetch(
+      // latest 10 updated repos
+      `${GITHUB_URL}/users/${login}/repos?per_page=10&sort=updated`,
+      {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+        },
+      }
+    );
     const data = await response.json();
 
     // Get Users

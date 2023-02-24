@@ -8,7 +8,7 @@ function UserItem({ user }) {
         <img src={user.avatar_url} alt="Profile" />
       </div>
       <div className={u.userInfoContainer}>
-        <div className={u.userInfo}>{user.login}</div>
+        <div className={u.userName}>{user.login}</div>
         <Link className={u.link} to={`/user/${user.login}`}>
           Visit Profile
         </Link>

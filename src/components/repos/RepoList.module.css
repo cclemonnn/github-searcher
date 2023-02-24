@@ -44,6 +44,11 @@
   font-size: 13px;
 }
 
+.noRepo {
+  font-size: 12px;
+  padding: 3px;
+}
+
 .repoTitle {
   font-family: "Tilt Neon", cursive;
   font-size: 15px;

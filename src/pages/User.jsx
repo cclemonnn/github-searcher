@@ -9,8 +9,6 @@ import {
   FaTwitter,
   FaUsers,
   FaUserFriends,
-  FaStar,
-  FaRegStar,
 } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 import { MdEmail } from "react-icons/md";
@@ -58,7 +56,10 @@ function User() {
     <div className={u.container}>
       <div className={u.profileContainer}>
         {/* Star */}
-        <Star style={{ fontSize: "20px", top: "-3px", left: "0" }} />
+        <Star
+          style={{ fontSize: "20px", top: "-3px", left: "0" }}
+          login={login}
+        />
 
         {/* Avatar */}
         <figure className={u.avatarContainer}>

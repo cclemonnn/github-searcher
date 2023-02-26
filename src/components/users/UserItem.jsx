@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import Star from "../star/Star";
-import { FaStar, FaRegStar } from "react-icons/fa";
 import u from "./UserItem.module.css";
 
 function UserItem({ user }) {
   return (
     <div className={u.card}>
-      <Star style={{ top: "-3px", right: "0" }} />
+      <Star style={{ top: "-3px", right: "0" }} login={user.login} />
       <div className={u.avatar}>
         <img src={user.avatar_url} alt="Profile" />
       </div>

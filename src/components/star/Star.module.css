@@ -1,0 +1,16 @@
+.star {
+  position: absolute;
+  color: #ff8c00;
+  border-radius: 50%;
+  padding: 1px;
+  box-shadow: 1px 1px 10px rgba(255, 165, 0, 0.8);
+}
+
+.star:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.star:active {
+  transform: scale(0.95);
+}

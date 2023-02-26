@@ -1,6 +1,7 @@
 import { useEffect, useContext } from "react";
 import GithubContext from "../context/github/GithubContext";
 import RepoList from "../components/repos/RepoList";
+import Star from "../components/star/Star";
 import { useParams } from "react-router-dom";
 import {
   FaSpinner,
@@ -8,6 +9,8 @@ import {
   FaTwitter,
   FaUsers,
   FaUserFriends,
+  FaStar,
+  FaRegStar,
 } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 import { MdEmail } from "react-icons/md";
@@ -54,6 +57,9 @@ function User() {
   return (
     <div className={u.container}>
       <div className={u.profileContainer}>
+        {/* Star */}
+        <Star style={{ fontSize: "20px", top: "-3px", left: "0" }} />
+
         {/* Avatar */}
         <figure className={u.avatarContainer}>
           <img src={avatar_url} alt="user avatar" className={u.avatar} />

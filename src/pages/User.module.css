@@ -19,6 +19,7 @@
   border-radius: 10px;
   border: 2px solid #00cccc;
   box-shadow: 2px 2px 10px rgba(139, 0, 139, 0.3);
+  position: relative;
 }
 
 /* Avatar */

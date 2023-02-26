@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
+import Favourites from "./components/layout/Favourites";
 import Main from "./components/layout/Main";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -27,7 +27,7 @@ function App() {
               <Route path="/*" element={<NotFound />}></Route>
             </Routes>
           </Main>
-          <Footer />
+          <Favourites />
         </BrowserRouter>
       </AlertProvider>
     </GithubProvider>

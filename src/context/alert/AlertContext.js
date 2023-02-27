@@ -10,11 +10,11 @@ export const AlertProvider = ({ children }) => {
   const [state, dispatch] = useReducer(alertReducer, initialAlertMsg);
 
   //   Set an alert function
-  const setAlert = (msg, type) => {
+  const setAlert = (msg, type, user) => {
     // put msg and type to state (this will cause Alert component to show)
     dispatch({
       type: ACTIONS.SET_ALERT,
-      payload: { msg, type },
+      payload: { msg, type, user },
     });
 
     const removeAlert = () => {

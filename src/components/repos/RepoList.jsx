@@ -10,7 +10,12 @@ function RepoList({ repos }) {
             className={r.repoTitle}
           >{`Showing Latest ${repos.length} Updated Repos`}</div>
           {repos.map((repo) => (
-            <a href={repo.html_url} target="_blank" rel="noreferer">
+            <a
+              href={repo.html_url}
+              target="_blank"
+              rel="noreferrer"
+              key={repo.id}
+            >
               <div className={r.innerContaienr}>
                 <HiExternalLink className={r.linkIcon} />
                 <div className={r.repoName}>{repo.name}</div>

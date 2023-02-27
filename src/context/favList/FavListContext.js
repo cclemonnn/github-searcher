@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import AlertContext from "../alert/AlertContext";
 
 const FavListContext = createContext();
@@ -12,10 +12,15 @@ export const FavListProvider = ({ children }) => {
 
   // Add user to list
   const addUser = (user) => {
-    setFavList((prev) => new Set([...prev, user]));
-
-    // show alert
-    setAlert("added to Favourites", "green", `${user}`);
+    // if less than 5 users in list
+    if (favList.size < 5) {
+      setFavList((prev) => new Set([...prev, user]));
+      // show alert
+      setAlert("added to Favourites", "green", `${user}`);
+    } else {
+      // show alert
+      setAlert("Favourites is full (5 max)", "red");
+    }
   };
 
   // Remove user from list

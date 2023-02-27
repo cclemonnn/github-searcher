@@ -11,13 +11,20 @@
   transform: translateX(-50%);
   opacity: 0;
   transition: transform 0.5s ease-out, opacity 0s;
+  padding: 2px 7px;
+  border-radius: 5px;
 }
 
-.error {
+.red {
   background-color: #ff4500;
-  padding: 2px 7px;
-  border-radius: 3%;
   box-shadow: 1px 1px 5px rgba(165, 42, 42, 0.8);
+  color: #ffff00;
+}
+
+.green {
+  background-color: #00ff00;
+  box-shadow: 1px 1px 5px rgba(0, 100, 0, 0.8);
+  color: #00008b;
 }
 
 .show {

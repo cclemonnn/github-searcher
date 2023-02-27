@@ -4,8 +4,19 @@ import AlertContext from "../alert/AlertContext";
 const FavListContext = createContext();
 
 export const FavListProvider = ({ children }) => {
-  const [favList, setFavList] = useState(new Set());
+  const [favList, setFavList] = useState(() => {
+    const storedFavList = localStorage.getItem("favList");
+
+    // creates new Set if not in local storage
+    return storedFavList ? new Set(JSON.parse(storedFavList)) : new Set();
+  });
+
   const { setAlert } = useContext(AlertContext);
+
+  // Store favList in local storage
+  useEffect(() => {
+    localStorage.setItem("favList", JSON.stringify([...favList]));
+  }, [favList]);
 
   // Check if user in list
   const userInList = (user) => favList.has(user);

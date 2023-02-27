@@ -15,7 +15,7 @@ export const FavListProvider = ({ children }) => {
     setFavList((prev) => new Set([...prev, user]));
 
     // show alert
-    setAlert(`${user} added to Favourites`, "green");
+    setAlert("added to Favourites", "green", `${user}`);
   };
 
   // Remove user from list
@@ -25,7 +25,7 @@ export const FavListProvider = ({ children }) => {
     setFavList(newFavList);
 
     // show alert
-    setAlert(`${user} removed from Favourites`, "green");
+    setAlert("removed from Favourites", "green", `${user}`);
   };
 
   return (

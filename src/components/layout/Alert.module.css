@@ -31,3 +31,9 @@
   transform: translate(-50%, 20px);
   opacity: 1;
 }
+
+.user {
+  font-weight: bold;
+  color: #800080;
+  letter-spacing: 1px;
+}

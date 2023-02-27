@@ -11,7 +11,12 @@ function Alert() {
         alert !== null && alert.type === "red" && a.red
       } ${alert !== null && alert.type === "green" && a.green}`}
     >
-      {alert !== null && alert.msg}
+      {alert !== null && alert.user === undefined && alert.msg}
+      {alert !== null && alert.user && (
+        <>
+          <span className={a.user}>{alert.user}</span> {alert.msg}
+        </>
+      )}
     </div>
   );
 }

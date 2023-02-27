@@ -1,12 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 
-.footer {
+.favContainer {
   font-family: "Itim", cursive;
   background-color: #00cccc;
   position: fixed;
   z-index: 10;
   bottom: 0;
   width: 100%;
+  min-height: 35px;
   padding: 5px 10px;
   border-top: 1px inset;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.favText {
+  color: #4b0082;
+}
+
+.userContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 5px;
+  background-color: #ffd700;
+  border-radius: 5px;
+  border: 2px solid #00cccc;
+  box-shadow: 1px 1px 10px rgba(139, 0, 139, 0.3);
+}
+
+.user {
+  font-size: 15px;
+  color: #000080;
+}
+
+.removeIcon {
+  color: #ff4500;
+}
+
+.removeIcon:hover {
+  cursor: pointer;
+}
+
+.removeIcon:active {
+  transform: scale(0.9);
 }

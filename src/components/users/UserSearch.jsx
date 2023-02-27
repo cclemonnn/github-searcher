@@ -26,7 +26,7 @@ function UserSearch() {
     if (text !== "") {
       searchUsers(text);
     } else {
-      setAlert("Please enter an username", "error");
+      setAlert("Please enter an username", "red");
     }
     setText("");
   };

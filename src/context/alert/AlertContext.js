@@ -11,7 +11,7 @@ export const AlertProvider = ({ children }) => {
 
   //   Set an alert function
   const setAlert = (msg, type) => {
-    // put msg and type to state
+    // put msg and type to state (this will cause Alert component to show)
     dispatch({
       type: ACTIONS.SET_ALERT,
       payload: { msg, type },

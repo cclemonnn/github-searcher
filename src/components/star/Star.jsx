@@ -1,24 +1,10 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import FavListContext from "../../context/favList/FavListContext";
 import s from "./Star.module.css";
 
 function Star({ style, login }) {
-  const [favList, setFavList] = useState(new Set());
-
-  // Check if user in list
-  const userInList = (user) => favList.has(user);
-
-  // Add user to list
-  const addUser = (user) => {
-    setFavList((prev) => new Set([...prev, user]));
-  };
-
-  // Remove user from list
-  const removeUser = (user) => {
-    const newFavList = new Set(favList);
-    newFavList.delete(user);
-    setFavList(newFavList);
-  };
+  const { userInList, addUser, removeUser } = useContext(FavListContext);
 
   return (
     <>

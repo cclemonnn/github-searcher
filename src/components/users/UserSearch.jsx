@@ -69,11 +69,13 @@ function UserSearch() {
         )}
 
         {/* Page */}
-        <div className={u.pageContainer}>
-          <BsFillArrowLeftCircleFill />
-          <div className={u.pageText}>15/15</div>
-          <BsFillArrowRightCircleFill />
-        </div>
+        {users.length > 0 && (
+          <div className={u.pageContainer}>
+            <BsFillArrowLeftCircleFill />
+            <div className={u.pageText}>15/15</div>
+            <BsFillArrowRightCircleFill />
+          </div>
+        )}
       </div>
     </div>
   );

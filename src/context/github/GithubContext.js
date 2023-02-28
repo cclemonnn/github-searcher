@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useReducer, useContext, useEffect } from "react";
 import githubReducer from "./GithubReducer";
 import { ACTIONS } from "./GithubReducer";
 import PageContext from "../page/PageContext";
@@ -9,7 +9,7 @@ const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 export const GithubProvider = ({ children }) => {
-  const { createMaxPage } = useContext(PageContext);
+  const { currentPage, createMaxPage } = useContext(PageContext);
 
   const initialState = {
     users: [], //all user data from search results
@@ -21,6 +21,11 @@ export const GithubProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
+  // Called searchUser when current user or page changed
+  useEffect(() => {
+    searchUsers();
+  }, [state.currentUser, currentPage]);
+
   // Set current user
   const setCurrentUser = (username) => {
     dispatch({
@@ -30,22 +35,33 @@ export const GithubProvider = ({ children }) => {
   };
 
   // Search user results
-  const searchUsers = async (username) => {
-    // Set Loading to true at start
-    dispatch({ type: ACTIONS.SET_LOADING });
+  const searchUsers = async () => {
+    console.log("search called for:", state.currentUser);
 
-    const response = await fetch(`${GITHUB_URL}/search/users?q=${username}`, {
-      headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
-      },
-    });
-    const data = await response.json();
+    if (state.currentUser !== "") {
+      // Set Loading to true at start
+      dispatch({ type: ACTIONS.SET_LOADING });
+      console.log("fetching data for:", state.currentUser);
 
-    // Get users
-    dispatch({
-      type: ACTIONS.GET_USERS,
-      payload: data.items,
-    });
+      const response = await fetch(
+        `${GITHUB_URL}/search/users?q=${state.currentUser}&page=${currentPage}`,
+        {
+          headers: {
+            Authorization: `token ${GITHUB_TOKEN}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log("data received:", data);
+
+      createMaxPage(data.total_count);
+
+      // Get users
+      dispatch({
+        type: ACTIONS.GET_USERS,
+        payload: data.items,
+      });
+    }
   };
 
   // Clear users and current user

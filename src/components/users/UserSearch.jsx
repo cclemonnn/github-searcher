@@ -53,7 +53,7 @@ function UserSearch() {
         </form>
 
         {/* Show clear btn only if search result is not empty */}
-        {users && users.length > 0 ? (
+        {users.length > 0 ? (
           <div className={u.clear}>
             <div className={u.clearContainer}>
               <VscClearAll className={u.clearBtn} onClick={clearUsers} />
@@ -70,7 +70,7 @@ function UserSearch() {
         )}
 
         {/* Page */}
-        {users && users.length > 0 && (
+        {users.length > 0 && (
           <div className={u.pageContainer}>
             <BsFillArrowLeftCircleFill />
             <div className={u.pageText}>15/15</div>

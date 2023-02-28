@@ -15,9 +15,7 @@ function UserResults() {
         </div>
       ) : (
         <div className={u.container}>
-          {users.map((user) => (
-            <UserItem key={user.id} user={user} />
-          ))}
+          {users && users.map((user) => <UserItem key={user.id} user={user} />)}
         </div>
       )}
     </>

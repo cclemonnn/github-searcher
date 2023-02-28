@@ -1,6 +1,10 @@
+import { useState, useContext } from "react";
 import { VscClearAll } from "react-icons/vsc";
 import { FaSpinner } from "react-icons/fa";
-import { useState, useContext } from "react";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 import GithubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
 import u from "./UserSearch.module.css";
@@ -33,35 +37,44 @@ function UserSearch() {
 
   return (
     <div className={u.container}>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Search"
-          className={u.searchBox}
-          value={text}
-          onChange={handleTextChange}
-        />
-        <button type="submit" className={u.searchBtn}>
-          Search
-        </button>
-      </form>
+      <div className={u.searchContainer}>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search"
+            className={u.searchBox}
+            value={text}
+            onChange={handleTextChange}
+          />
+          <button type="submit" className={u.searchBtn}>
+            Search
+          </button>
+        </form>
 
-      {/* Show clear btn only if search result is not empty */}
-      {users.length > 0 ? (
-        <div className={u.clear}>
-          <div className={u.clearContainer}>
-            <VscClearAll className={u.clearBtn} onClick={clearUsers} />
-            <div className={u.clearText}>Clear</div>
+        {/* Show clear btn only if search result is not empty */}
+        {users.length > 0 ? (
+          <div className={u.clear}>
+            <div className={u.clearContainer}>
+              <VscClearAll className={u.clearBtn} onClick={clearUsers} />
+              <div className={u.clearText}>Clear</div>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className={u.spinnerContainer}>
-          <FaSpinner className={u.spinner} />
-          <div className={u.promptText}>
-            enter a <b>github username</b> and click <b>search</b>
+        ) : (
+          <div className={u.spinnerContainer}>
+            <FaSpinner className={u.spinner} />
+            <div className={u.promptText}>
+              enter a <b>github username</b> and click <b>search</b>
+            </div>
           </div>
+        )}
+
+        {/* Page */}
+        <div className={u.pageContainer}>
+          <BsFillArrowLeftCircleFill />
+          <div className={u.pageText}>15/15</div>
+          <BsFillArrowRightCircleFill />
         </div>
-      )}
+      </div>
     </div>
   );
 }

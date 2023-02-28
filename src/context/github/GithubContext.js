@@ -1,6 +1,7 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useContext } from "react";
 import githubReducer from "./GithubReducer";
 import { ACTIONS } from "./GithubReducer";
+import PageContext from "../page/PageContext";
 
 const GithubContext = createContext();
 
@@ -8,14 +9,25 @@ const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 export const GithubProvider = ({ children }) => {
+  const { createMaxPage } = useContext(PageContext);
+
   const initialState = {
     users: [], //all user data from search results
     user: {}, //single user data from view profile
     repos: [],
     loading: false,
+    currentUser: "",
   };
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
+
+  // Set current user
+  const setCurrentUser = (username) => {
+    dispatch({
+      type: ACTIONS.SET_CURRENT_USER,
+      payload: username,
+    });
+  };
 
   // Search user results
   const searchUsers = async (username) => {
@@ -29,17 +41,21 @@ export const GithubProvider = ({ children }) => {
     });
     const data = await response.json();
 
-    // Get Users
+    // Get users
     dispatch({
       type: ACTIONS.GET_USERS,
       payload: data.items,
     });
   };
 
-  // Clear users
+  // Clear users and current user
   const clearUsers = () => {
     dispatch({
       type: ACTIONS.CLEAR_USERS,
+    });
+
+    dispatch({
+      type: ACTIONS.CLEAR_CURRENT_USER,
     });
   };
 
@@ -96,12 +112,13 @@ export const GithubProvider = ({ children }) => {
       value={{
         users: state.users,
         user: state.user,
-        loading: state.loading,
         repos: state.repos,
+        loading: state.loading,
         searchUsers,
         getUserData,
         clearUsers,
         getUserRepos,
+        setCurrentUser,
       }}
     >
       {children}

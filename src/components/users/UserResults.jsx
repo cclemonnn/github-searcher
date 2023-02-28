@@ -7,20 +7,20 @@ import u from "./UserResults.module.css";
 function UserResults() {
   const { users, loading } = useContext(GithubContext);
 
-  if (!loading) {
-    return (
-      <div className={u.container}>
-        {users.map((user) => (
-          <UserItem key={user.id} user={user} />
-        ))}
-      </div>
-    );
-  } else {
-    return (
-      <div className={u.spinnerContainer}>
-        <FaSpinner className={u.spinner} />
-      </div>
-    );
-  }
+  return (
+    <>
+      {loading ? (
+        <div className={u.spinnerContainer}>
+          <FaSpinner className={u.spinner} />
+        </div>
+      ) : (
+        <div className={u.container}>
+          {users.map((user) => (
+            <UserItem key={user.id} user={user} />
+          ))}
+        </div>
+      )}
+    </>
+  );
 }
 export default UserResults;

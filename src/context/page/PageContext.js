@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
-const PageContext = useContext();
+const PageContext = createContext();
 
 export function PageProvider({ children }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,6 +42,8 @@ export function PageProvider({ children }) {
         resetPage,
         maxPage,
         createMaxPage,
+        reachedMax,
+        reachedMin,
       }}
     >
       {children}

@@ -14,7 +14,7 @@ function UserSearch() {
   const [text, setText] = useState("");
 
   // user data, get users, clear users
-  const { users, searchUsers, clearUsers } = useContext(GithubContext);
+  const { users, clearUsers, setCurrentUser } = useContext(GithubContext);
 
   // set alert
   const { setAlert } = useContext(AlertContext);
@@ -28,7 +28,8 @@ function UserSearch() {
 
     // if search box is not empty
     if (text !== "") {
-      searchUsers(text);
+      setCurrentUser(text);
+      // searchUsers();
     } else {
       setAlert("Please enter an username", "red");
     }
@@ -52,7 +53,7 @@ function UserSearch() {
         </form>
 
         {/* Show clear btn only if search result is not empty */}
-        {users.length > 0 ? (
+        {users && users.length > 0 ? (
           <div className={u.clear}>
             <div className={u.clearContainer}>
               <VscClearAll className={u.clearBtn} onClick={clearUsers} />
@@ -69,7 +70,7 @@ function UserSearch() {
         )}
 
         {/* Page */}
-        {users.length > 0 && (
+        {users && users.length > 0 && (
           <div className={u.pageContainer}>
             <BsFillArrowLeftCircleFill />
             <div className={u.pageText}>15/15</div>

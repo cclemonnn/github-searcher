@@ -36,6 +36,7 @@
   font-weight: bold;
   letter-spacing: 1px;
   color: #000033;
+  word-break: break-all;
 }
 
 .link {

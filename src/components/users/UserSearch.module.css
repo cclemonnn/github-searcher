@@ -31,7 +31,6 @@ form {
   border-radius: 50px;
   margin-right: 5px;
   border: 3px solid white;
-  /* margin-bottom: 50px; */
 }
 
 .searchBox::placeholder {
@@ -133,4 +132,38 @@ form {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.pageText {
+  display: flex;
+}
+
+.pageBtns {
+  color: #306;
+  border-radius: 50%;
+  box-shadow: 0px 1px 10px rgba(0, 255, 255, 0.5);
+}
+
+.pageBtns:hover {
+  cursor: pointer;
+  color: #000099;
+}
+
+.pageBtns:active {
+  transform: scale(0.9);
+}
+
+.unclickable {
+  pointer-events: non-clickable;
+  color: #606060;
+  box-shadow: 0px 1px 10px rgba(160, 160, 160, 0.5);
+}
+
+.unclickable:hover {
+  cursor: not-allowed;
+  color: #606060;
+}
+
+.unclickable:active {
+  transform: scale(1);
 }

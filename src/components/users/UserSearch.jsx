@@ -7,6 +7,7 @@ import {
 } from "react-icons/bs";
 import GithubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
+import PageContext from "../../context/page/PageContext";
 import u from "./UserSearch.module.css";
 
 function UserSearch() {
@@ -19,6 +20,17 @@ function UserSearch() {
   // set alert
   const { setAlert } = useContext(AlertContext);
 
+  // Pages
+  const {
+    currentPage,
+    incrementPage,
+    decrementPage,
+    resetPage,
+    maxPage,
+    reachedMax,
+    reachedMin,
+  } = useContext(PageContext);
+
   //   Set text when input change
   const handleTextChange = (e) => setText(e.target.value);
 
@@ -28,6 +40,7 @@ function UserSearch() {
 
     // if search box is not empty
     if (text !== "") {
+      resetPage();
       setCurrentUser(text);
       // searchUsers();
     } else {
@@ -72,9 +85,19 @@ function UserSearch() {
         {/* Page */}
         {users.length > 0 && (
           <div className={u.pageContainer}>
-            <BsFillArrowLeftCircleFill />
-            <div className={u.pageText}>15/15</div>
-            <BsFillArrowRightCircleFill />
+            <BsFillArrowLeftCircleFill
+              onClick={decrementPage}
+              className={`${u.pageBtns} ${reachedMin() && u.unclickable}`}
+            />
+            <div className={u.pageText}>
+              <div className={u.page}>{currentPage}</div>
+              <div className={u.slash}>/</div>
+              <div className={u.page}>{maxPage}</div>
+            </div>
+            <BsFillArrowRightCircleFill
+              onClick={incrementPage}
+              className={`${u.pageBtns} ${reachedMax() && u.unclickable}`}
+            />
           </div>
         )}
       </div>

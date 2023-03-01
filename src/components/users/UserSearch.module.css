@@ -199,3 +199,9 @@ form {
 .unclickable:active {
   transform: scale(1);
 }
+
+@media (width < 250px) {
+  .container {
+    margin-top: 40px;
+  }
+}

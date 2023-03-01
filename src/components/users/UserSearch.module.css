@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
 
 .container {
   font-family: "Roboto Slab", serif;
@@ -129,13 +130,26 @@ form {
 }
 
 .pageContainer {
+  font-family: "Bree Serif", serif;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.pageText {
+.pageTextContainer {
   display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.page {
+  color: #d2691e;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.slash {
+  color: #663300;
+  font-size: 14px;
 }
 
 .pageBtns {

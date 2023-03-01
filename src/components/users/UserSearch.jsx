@@ -89,7 +89,7 @@ function UserSearch() {
               onClick={decrementPage}
               className={`${u.pageBtns} ${reachedMin() && u.unclickable}`}
             />
-            <div className={u.pageText}>
+            <div className={u.pageTextContainer}>
               <div className={u.page}>{currentPage}</div>
               <div className={u.slash}>/</div>
               <div className={u.page}>{maxPage}</div>

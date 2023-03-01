@@ -7,10 +7,18 @@ export function PageProvider({ children }) {
   const [maxPage, setMaxPage] = useState(1);
 
   // Increment current page
-  const incrementPage = () => setCurrentPage((prev) => prev + 1);
+  const incrementPage = () => {
+    if (!reachedMax()) {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
 
   // Decrement current page
-  const decrementPage = () => setCurrentPage((prev) => prev - 1);
+  const decrementPage = () => {
+    if (!reachedMin()) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
 
   // Reset current page
   const resetPage = () => setCurrentPage(1);

@@ -15,7 +15,8 @@ function UserSearch() {
   const [text, setText] = useState("");
 
   // user data, get users, clear users
-  const { users, clearUsers, setCurrentUser } = useContext(GithubContext);
+  const { users, clearUsers, setCurrentUser, currentUser } =
+    useContext(GithubContext);
 
   // set alert
   const { setAlert } = useContext(AlertContext);
@@ -42,7 +43,6 @@ function UserSearch() {
     if (text !== "") {
       resetPage();
       setCurrentUser(text);
-      // searchUsers();
     } else {
       setAlert("Please enter an username", "red");
     }
@@ -50,58 +50,66 @@ function UserSearch() {
   };
 
   return (
-    <div className={u.container}>
-      <div className={u.searchContainer}>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Search"
-            className={u.searchBox}
-            value={text}
-            onChange={handleTextChange}
-          />
-          <button type="submit" className={u.searchBtn}>
-            Search
-          </button>
-        </form>
-
-        {/* Show clear btn only if search result is not empty */}
-        {users.length > 0 ? (
-          <div className={u.clear}>
-            <div className={u.clearContainer}>
-              <VscClearAll className={u.clearBtn} onClick={clearUsers} />
-              <div className={u.clearText}>Clear</div>
-            </div>
-          </div>
-        ) : (
-          <div className={u.spinnerContainer}>
-            <FaSpinner className={u.spinner} />
-            <div className={u.promptText}>
-              enter a <b>github username</b> and click <b>search</b>
-            </div>
-          </div>
-        )}
-
-        {/* Page */}
-        {users.length > 0 && (
-          <div className={u.pageContainer}>
-            <BsFillArrowLeftCircleFill
-              onClick={decrementPage}
-              className={`${u.pageBtns} ${reachedMin() && u.unclickable}`}
+    <>
+      {currentUser !== "" && (
+        <div className={u.searchResults}>
+          <span className={u.resultsText}>Search Results for: &nbsp;</span>
+          <span className={u.currentUser}>{currentUser}</span>
+        </div>
+      )}
+      <div className={u.container}>
+        <div className={u.searchContainer}>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Search"
+              className={u.searchBox}
+              value={text}
+              onChange={handleTextChange}
             />
-            <div className={u.pageTextContainer}>
-              <div className={u.page}>{currentPage}</div>
-              <div className={u.slash}>/</div>
-              <div className={u.page}>{maxPage}</div>
+            <button type="submit" className={u.searchBtn}>
+              Search
+            </button>
+          </form>
+
+          {/* Show clear btn only if search result is not empty */}
+          {users.length > 0 ? (
+            <div className={u.clear}>
+              <div className={u.clearContainer}>
+                <VscClearAll className={u.clearBtn} onClick={clearUsers} />
+                <div className={u.clearText}>Clear</div>
+              </div>
             </div>
-            <BsFillArrowRightCircleFill
-              onClick={incrementPage}
-              className={`${u.pageBtns} ${reachedMax() && u.unclickable}`}
-            />
-          </div>
-        )}
+          ) : (
+            <div className={u.spinnerContainer}>
+              <FaSpinner className={u.spinner} />
+              <div className={u.promptText}>
+                enter a <b>github username</b> and click <b>search</b>
+              </div>
+            </div>
+          )}
+
+          {/* Page */}
+          {users.length > 0 && (
+            <div className={u.pageContainer}>
+              <BsFillArrowLeftCircleFill
+                onClick={decrementPage}
+                className={`${u.pageBtns} ${reachedMin() && u.unclickable}`}
+              />
+              <div className={u.pageTextContainer}>
+                <div className={u.page}>{currentPage}</div>
+                <div className={u.slash}>/</div>
+                <div className={u.page}>{maxPage}</div>
+              </div>
+              <BsFillArrowRightCircleFill
+                onClick={incrementPage}
+                className={`${u.pageBtns} ${reachedMax() && u.unclickable}`}
+              />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default UserSearch;

@@ -1,5 +1,5 @@
 import { FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import n from "./Navbar.module.css";
 
 function Navbar() {
@@ -14,12 +14,16 @@ function Navbar() {
         </div>
 
         <div className={n.btnContainer}>
-          <Link to="/" className={n.btn}>
-            Home
-          </Link>
-          <Link to="/about" className={n.btn}>
-            About
-          </Link>
+          <NavLink
+            to="/"
+            end
+            className={n.btn}
+            style={({ isActive }) => ({
+              display: isActive ? "none" : "block",
+            })}
+          >
+            Back to Search
+          </NavLink>
         </div>
       </div>
     </nav>

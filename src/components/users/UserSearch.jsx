@@ -51,12 +51,15 @@ function UserSearch() {
 
   return (
     <>
-      {currentUser !== "" && (
+      {/* Search Results Text */}
+      {currentUser !== "" && users.length > 0 && (
         <div className={u.searchResults}>
           <span className={u.resultsText}>Search Results for: &nbsp;</span>
           <span className={u.currentUser}>{currentUser}</span>
         </div>
       )}
+
+      {/* Search Form */}
       <div className={u.container}>
         <div className={u.searchContainer}>
           <form onSubmit={handleSubmit}>

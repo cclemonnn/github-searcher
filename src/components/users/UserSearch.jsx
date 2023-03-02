@@ -15,7 +15,7 @@ function UserSearch() {
   const [text, setText] = useState("");
 
   // user data, get users, clear users
-  const { users, clearUsers, setCurrentUser, currentUser } =
+  const { users, clearUsers, setCurrentUser, currentUser, loading } =
     useContext(GithubContext);
 
   // set alert
@@ -76,14 +76,17 @@ function UserSearch() {
           </form>
 
           {/* Show clear btn only if search result is not empty */}
-          {users.length > 0 ? (
+          {users.length > 0 && (
             <div className={u.clear}>
               <div className={u.clearContainer}>
                 <VscClearAll className={u.clearBtn} onClick={clearUsers} />
                 <div className={u.clearText}>Clear</div>
               </div>
             </div>
-          ) : (
+          )}
+
+          {/* Show home page loading only when not loading and when users.length is 0 */}
+          {!loading && users.length === 0 && (
             <div className={u.spinnerContainer}>
               <FaSpinner className={u.spinner} />
               <div className={u.promptText}>

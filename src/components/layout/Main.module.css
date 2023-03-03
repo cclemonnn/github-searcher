@@ -2,3 +2,15 @@
   padding: 70px 20px 100px;
   position: relative;
 }
+
+@media (300px <= width <= 500px) {
+  .main {
+    padding-bottom: 200px;
+  }
+}
+
+@media (width < 300px) {
+  .main {
+    padding-bottom: 300px;
+  }
+}

@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Github Searcher App (Github 搜尋器)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**App URL:** https://github-searcher-cclemonnn.vercel.app/
 
-## Available Scripts
+This app is a github searcher that allows user to search up github accounts. Each user profile contains detailed information of the user.
 
-In the project directory, you can run:
+此專案是一個 Github 搜尋器，讓使用者可以搜尋 Github 帳戶。每個使用者個人檔案都包含有關該使用者的詳細信息。
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Skills (專案技能)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+React (v6), Github REST API, Local Storage, Javascript (ES6), CSS3, and HTML5.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features (功能)
 
-### `npm run build`
+### Search Users (搜尋使用者)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Users can search for Github users using either a username or the public name provided by the user.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 使用者可以使用用戶名或用戶提供的公共名稱搜索 Github 用戶。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### User Profile (使用者個人檔案)
 
-### `npm run eject`
+- User can visit a user's profile by clicking "Visit Profile" in the user profile card. Each user profile contains links to user's Github page, repositories, and Twitter.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 用戶可以通過在使用者個人檔案卡片中點擊“Visit Profile”來訪問用戶的個人檔案。每個使用者個人檔案都包含連接到使用者的 Github 頁面、repositories 和 Twitter。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Favourites (收藏夾)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- The app allows users to add up to 5 Github users to their Favourites by clicking the star button at the top right of each user profile card or at the top left of each profile.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 此應用程式允許用戶通過在每個使用者個人檔案卡片的右上方或個人檔案左上方的星形按鈕上點擊來將最多 5 個 Github 用戶添加到收藏夾中。
 
-## Learn More
+- To remove a Github user from the Favourites, user can either click the star button again or click the X-mark of the user in the Favourites.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 若要從收藏夾中刪除 Github 用戶，用戶可以再次點擊星形按鈕或點擊收藏夾中用戶的 X 標記。
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Favourites is saved in local storage so that it persists across sessions.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 收藏夾保存在 Local Storage 。

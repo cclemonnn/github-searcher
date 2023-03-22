@@ -1,6 +1,6 @@
 # Github Profile Explorer
 
-**App URL:** https://github-searcher-cclemonnn.vercel.app/
+**App URL:** https://github-profile-explorer-cclemonnn.vercel.app/
 
 This app allows user to search up Github user profile. Each user profile contains detailed information of the user.
 

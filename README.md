@@ -2,7 +2,7 @@
 
 **App URL:** https://github-searcher-cclemonnn.vercel.app/
 
-This app is a github searcher that allows user to search up github accounts. Each user profile contains detailed information of the user.
+This app is a Github searcher that allows user to search up Github accounts. Each user profile contains detailed information of the user.
 
 此專案是一個 Github 搜尋器，讓使用者可以搜尋 Github 帳戶。每個使用者個人檔案都包含有關該使用者的詳細信息。
 

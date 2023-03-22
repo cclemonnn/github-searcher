@@ -9,7 +9,7 @@ function Navbar() {
         <div className={n.iconContainer}>
           <FaGithub className={n.githubIcon} />
           <Link to="/" className={n.searcher}>
-            Github Searcher
+            Github Profile Explorer
           </Link>
         </div>
 

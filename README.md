@@ -12,7 +12,7 @@ This app allows you to search up Github user profile and save favourite users to
 
 ## Project Skills (專案技能)
 
-React, Github REST API, Local Storage, Javascript (ES6), CSS3, and HTML5.
+ReactJS, Github REST API, Local Storage, Javascript (ES6), CSS3, and HTML5.
 
 ---
 
